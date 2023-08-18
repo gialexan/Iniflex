@@ -1,6 +1,7 @@
 package br.com.projedata.service;
 
 import java.math.BigDecimal;
+import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +33,19 @@ public class EmployeeService {
 	}
 
 	public BigDecimal sumSalary() {
-		return (repository.sumSalary());
+		return (repository.getSumSalary());
 	}
 	
 	public List<Employee> alphabeticalOrder() {
-		return (repository.alphabeticalOrder());
+		return (repository.getAlphabeticalOrder());
 	}
 	
 	public String getOldestPerson() {
 		return (repository.getOldestPerson());
+	}
+	
+	public List<String> getEmployeesByFunction () {
+		return (repository.getEmployeesByFunction());
 	}
 }
 

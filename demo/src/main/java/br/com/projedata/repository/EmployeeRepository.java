@@ -1,6 +1,7 @@
 package br.com.projedata.repository;
 
 import java.math.BigDecimal;
+import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,21 +19,15 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 	public void updateSalary();
 
 	@Query(value = "SELECT SUM(SALARY) FROM TB_EMPLOYEE", nativeQuery = true)
-	public BigDecimal sumSalary();
+	public BigDecimal getSumSalary();
 	
 	@Query(value = "SELECT * FROM TB_EMPLOYEE ORDER BY NAME", nativeQuery = true)
-	public List<Employee> alphabeticalOrder();
+	public List<Employee> getAlphabeticalOrder();
 	
 	@Query(value = "SELECT NAME, TRUNCATE((DATEDIFF(DAY, BIRTH_DATE, CURRENT_DATE)/365.25), 0) AS AGE FROM TB_EMPLOYEE ORDER BY BIRTH_DATE LIMIT 1;", nativeQuery = true)
 	public String getOldestPerson();
+	
+	@Query(value = "SELECT e.FUNCTION, GROUP_CONCAT(e.NAME) AS EMPLOYEES FROM TB_EMPLOYEE e GROUP BY FUNCTION;", nativeQuery = true)
+	public List<String> getEmployeesByFunction();
+	
 }
-
-
-
-//
-//SELECT
-//NAME,
-//TRUNCATE((DATEDIFF(DAY, BIRTH_DATE, CURRENT_DATE) / 365.25), 0) AS AGE
-//FROM TB_EMPLOYEE
-//ORDER BY BIRTH_DATE
-//LIMIT 1;

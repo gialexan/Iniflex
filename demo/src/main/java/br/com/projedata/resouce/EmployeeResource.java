@@ -1,6 +1,7 @@
 package br.com.projedata.resouce;
 
 import java.math.BigDecimal;
+import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,18 +40,23 @@ public class EmployeeResource {
 		service.updateSalary();
 	}
 	
-	@GetMapping("/sum-salary")
+	@GetMapping("/get-sum-salary")
 	public BigDecimal sumSalary() {
 		return (service.sumSalary());
 	}
 	
-	@GetMapping("/alphabetical-order")
+	@GetMapping("/get-alphabetical-order")
 	public List<Employee> alphabeticalOrder( ) {
 		return (service.alphabeticalOrder());
 	}
 	
-	@GetMapping("/get-oldest-person")
+	@GetMapping("/get-oldest-employee")
 	public String getOldestPerson() {
 		return (service.getOldestPerson());
+	}
+	
+	@GetMapping("/get-employees-by-function")
+	public List<String> getEmployeesByFunction() {
+		return (service.getEmployeesByFunction());
 	}
 }
