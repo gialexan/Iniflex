@@ -1,7 +1,6 @@
 package br.com.projedata.resouce;
 
 import java.math.BigDecimal;
-import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

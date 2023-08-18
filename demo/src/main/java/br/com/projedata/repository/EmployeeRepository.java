@@ -1,7 +1,6 @@
 package br.com.projedata.repository;
 
 import java.math.BigDecimal;
-import java.sql.ResultSet;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -29,5 +28,4 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 	
 	@Query(value = "SELECT e.FUNCTION, GROUP_CONCAT(e.NAME) AS EMPLOYEES FROM TB_EMPLOYEE e GROUP BY FUNCTION;", nativeQuery = true)
 	public List<String> getEmployeesByFunction();
-	
 }
