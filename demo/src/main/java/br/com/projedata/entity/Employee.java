@@ -12,14 +12,12 @@ import jakarta.persistence.Table;
 @Table(name = "TB_EMPLOYEE")
 public class Employee extends Person {
 	
-	
 	@Id
 	private	int			id;
 
 	private BigDecimal	salary;
 	
 	private String		function;
-	
 
 	public Employee() {
 		super();
