@@ -30,9 +30,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 	@Query(value = "SELECT e.FUNCTION, GROUP_CONCAT(e.NAME) AS EMPLOYEES FROM TB_EMPLOYEE e GROUP BY FUNCTION;", nativeQuery = true)
 	public List<String> getEmployeesByFunction();
 
-	@Query(value = "SELECT NAME, FORMATDATETIME(BIRTH_DATE, 'dd/MM/yyyy')FROM TB_EMPLOYEE WHERE EXTRACT(MONTH FROM BIRTH_DATE) BETWEEN 10 AND 12;", nativeQuery = true)
-	public List<String> getEmployeesBirthdayOctToDec();
+	@Query(value = "SELECT * FROM TB_EMPLOYEE WHERE EXTRACT(MONTH FROM BIRTH_DATE) BETWEEN 10 AND 12;", nativeQuery = true)
+	public List<Employee> getEmployeesBirthdayOctToDec();
 
-	@Query(value = "SELECT ID, NAME, SALARY, FUNCTION, TRUNC((SALARY / 1212.00), 0) AS QNT_SAL_MIN FROM TB_EMPLOYEE WHERE SALARY > 1212.00", nativeQuery = true)
+	@Query(value = "SELECT *, TRUNC((SALARY / 1212.00), 0) AS AMOUNTH_MIN_WAGES FROM TB_EMPLOYEE WHERE SALARY > 1212.00", nativeQuery = true)
 	public List<Map<String, Object>> getMinimumWageCountbyEmployees();
+	
 }

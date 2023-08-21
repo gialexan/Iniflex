@@ -1,8 +1,6 @@
 package br.com.projedata.entity;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,26 +12,13 @@ public class Employee extends Person {
 	
 	@Id
 	private	int			id;
-
+	
 	private BigDecimal	salary;
 	
 	private String		function;
 
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Employee(String name, LocalDate birthDate) {
-		super(name, birthDate);
-		// TODO Auto-generated constructor stub
-	}
-
-	public Employee(int id, BigDecimal salary, String function) {
-		super();
-		this.id = id;
-		this.salary = salary;
-		this.function = function;
 	}
 	
 	public long getId() {

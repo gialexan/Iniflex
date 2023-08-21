@@ -2,7 +2,6 @@ package br.com.projedata.entity;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.MappedSuperclass;
 
@@ -11,18 +10,10 @@ public class Person {
 	
 	private String		name;
 	
-	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate	birthDate;
 
 	public Person() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Person(String name, LocalDate birthDate) {
-		super();
-		this.name = name;
-		this.birthDate = birthDate;
 	}
 
 	public String getName() {

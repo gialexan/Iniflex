@@ -1,8 +1,14 @@
 package br.com.projedata.service;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +28,20 @@ public class EmployeeService {
 		return (repository.findById(id).get());
 	}
 
-	public List<Employee> findAll(){
-		return (repository.findAll());
+	public List<EmployeeDTO> findAll(){
+		List<Employee> employees = repository.findAll();
+	    List<EmployeeDTO> employeeDTOs = employees.stream()
+		        .map(x -> {
+		            EmployeeDTO dto = new EmployeeDTO();
+		            dto.setId((int) x.getId());
+		            dto.setName((String) x.getName());
+		            dto.setStrSalary(new DecimalFormat("#,##0.00").format(x.getSalary()));
+		            dto.setFunction((String) x.getFunction());
+		            dto.setBirthDate(x.getBirthDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+		            return dto;
+		        })
+		        .collect(Collectors.toList());
+		    return (employeeDTOs);
 	}
 
 	public void	deleteById(int id) {
@@ -50,7 +68,7 @@ public class EmployeeService {
 		return (repository.getEmployeesByFunction());
 	}
 	
-	public List<String> getEmployeesBirthdayOctToDec() {
+	public List<Employee> getEmployeesBirthdayOctToDec() {
 		return (repository.getEmployeesBirthdayOctToDec());
 	}
 	
@@ -61,13 +79,20 @@ public class EmployeeService {
 	            EmployeeDTO dto = new EmployeeDTO();
 	            dto.setId((int) x.get("ID"));
 	            dto.setName((String) x.get("NAME"));
-	            dto.setSalary((BigDecimal) x.get("SALARY"));
+	            dto.setIntSalary((BigDecimal) x.get("SALARY"));
 	            dto.setFunction((String) x.get("FUNCTION"));
-	            dto.setQntSalMin((BigDecimal) x.get("QNT_SAL_MIN"));
+	            dto.setAmountMinWages((BigDecimal) x.get("AMOUNTH_MIN_WAGES"));
 	            return dto;
 	        })
 	        .collect(Collectors.toList());
 	    return (employeeDTOs);
+	}
+
+	public Map<String, List<Employee>> getEmployeesByFuctionInMap() {
+		List<Employee> employees = repository.findAll();
+		Map<String, List<Employee>> employeeMap = employees.stream()
+	            .collect(Collectors.groupingBy(Employee::getFunction, TreeMap::new, Collectors.toList()));				
+		return (employeeMap);
 	}
 }
 

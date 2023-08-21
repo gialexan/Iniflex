@@ -1,57 +1,52 @@
 package br.com.projedata.dto;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat.Style;
 import java.time.LocalDate;
+import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeDTO {
 	
+	private String		name;
+	
+	private String		birthDate;
+	
 	private int			id;
 
-	private String		name;
+	private BigDecimal	intSalary;
 
-	private BigDecimal	salary;
+	private String		strSalary;
 	
 	private String		function;
 
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private LocalDate	birthDate;
-	
-	private BigDecimal 	qntSalMin;
+	private BigDecimal 	amountMinWages;
 
 	public EmployeeDTO() {
-		super();
+		// TODO Auto-generated constructor stub
 	}
-	
-	public EmployeeDTO(int id, String name, BigDecimal salary, String function, LocalDate birthDate, BigDecimal qntSalMin) {
+
+	public EmployeeDTO(String name, String birthDate, int id, BigDecimal intSalary, String strSalary, String function,
+			BigDecimal amountMinWages) {
 		super();
-		this.id = id;
 		this.name = name;
-		this.salary = salary;
-		this.function = function;
 		this.birthDate = birthDate;
-		this.qntSalMin = qntSalMin;
-	}
-
-	public BigDecimal getQntSalMin() {
-		return qntSalMin;
-	}
-
-	public void setQntSalMin(BigDecimal qntSalMin) {
-		this.qntSalMin = qntSalMin;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
 		this.id = id;
+		this.intSalary = intSalary;
+		this.strSalary = strSalary;
+		this.function = function;
+		this.amountMinWages = amountMinWages;
+	}
+
+	public EmployeeDTO(int i, String string, BigDecimal bigDecimal, String string2, BigDecimal bigDecimal2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -62,12 +57,36 @@ public class EmployeeDTO {
 		this.name = name;
 	}
 
-	public BigDecimal getSalary() {
-		return salary;
+	public String getBirthDate() {
+		return birthDate;
 	}
 
-	public void setSalary(BigDecimal salary) {
-		this.salary = salary;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public BigDecimal getIntSalary() {
+		return intSalary;
+	}
+
+	public void setIntSalary(BigDecimal intSalary) {
+		this.intSalary = intSalary;
+	}
+
+	public String getStrSalary() {
+		return strSalary;
+	}
+
+	public void setStrSalary(String strSalary) {
+		this.strSalary = strSalary;
 	}
 
 	public String getFunction() {
@@ -78,12 +97,11 @@ public class EmployeeDTO {
 		this.function = function;
 	}
 
-	public LocalDate getBirthDate() {
-		return birthDate;
+	public BigDecimal getAmountMinWages() {
+		return amountMinWages;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
+	public void setAmountMinWages(BigDecimal amountMinWages) {
+		this.amountMinWages = amountMinWages;
 	}
-
 }

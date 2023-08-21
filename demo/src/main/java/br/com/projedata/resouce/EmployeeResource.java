@@ -22,7 +22,7 @@ public class EmployeeResource {
 	EmployeeService service;
 
 	@GetMapping
-	public List<Employee> findAll() {
+	public List<EmployeeDTO> findAll() {
 		return (service.findAll());
 	}
 
@@ -62,12 +62,17 @@ public class EmployeeResource {
 	}
 
 	@GetMapping("/get-employees-birth-day-oct-to-dec")
-	public List<String> getEmployeesBirthdayOctToDec() {
+	public List<Employee> getEmployeesBirthdayOctToDec() {
 		return (service.getEmployeesBirthdayOctToDec());
 	}
-	
+
 	@GetMapping("/get-minimum-wage-count-by-employees")
 	public List<EmployeeDTO> getMinimumWageCountbyEmployees() {
 		return (service.getMinimumWageCountbyEmployees());
+	}
+
+	@GetMapping("/map")
+	public Map<String, List<Employee>> getEmployeesByFuctionInMap() {
+		return (service.getEmployeesByFuctionInMap());
 	}
 }
