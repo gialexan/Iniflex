@@ -1,12 +1,6 @@
 package br.com.projedata.dto;
 
 import java.math.BigDecimal;
-import java.text.NumberFormat.Style;
-import java.time.LocalDate;
-import java.util.Date;
-
-import org.springframework.format.annotation.NumberFormat;
-
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

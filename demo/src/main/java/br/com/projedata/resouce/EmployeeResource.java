@@ -61,7 +61,7 @@ public class EmployeeResource {
 		return (service.getEmployeesByFunction());
 	}
 
-	@GetMapping("/get-employees-birth-day-oct-to-dec")
+	@GetMapping("/get-employees-birthday-oct-to-dec")
 	public List<Employee> getEmployeesBirthdayOctToDec() {
 		return (service.getEmployeesBirthdayOctToDec());
 	}
@@ -71,7 +71,7 @@ public class EmployeeResource {
 		return (service.getMinimumWageCountbyEmployees());
 	}
 
-	@GetMapping("/map")
+	@GetMapping("/group-employees-by-function-in-map")
 	public Map<String, List<Employee>> getEmployeesByFuctionInMap() {
 		return (service.getEmployeesByFuctionInMap());
 	}
