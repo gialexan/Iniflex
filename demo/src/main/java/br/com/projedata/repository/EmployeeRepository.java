@@ -35,5 +35,4 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 
 	@Query(value = "SELECT *, TRUNC((SALARY / 1212.00), 0) AS AMOUNTH_MIN_WAGES FROM TB_EMPLOYEE WHERE SALARY > 1212.00", nativeQuery = true)
 	public List<Map<String, Object>> getMinimumWageCountbyEmployees();
-	
 }

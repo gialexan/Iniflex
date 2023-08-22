@@ -42,7 +42,11 @@ public class EmployeeService {
 	}
 
 	public void	deleteById(int id) {
-		repository.deleteById(id);
+		try {
+			repository.deleteById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void updateSalary() {
@@ -92,4 +96,3 @@ public class EmployeeService {
 		return (employeeMap);
 	}
 }
-

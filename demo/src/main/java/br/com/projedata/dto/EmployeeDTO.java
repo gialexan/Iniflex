@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class EmployeeDTO {
 	
@@ -24,7 +22,7 @@ public class EmployeeDTO {
 	private BigDecimal 	amountMinWages;
 
 	public EmployeeDTO() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public EmployeeDTO(String name, String birthDate, int id, BigDecimal intSalary, String strSalary, String function,
@@ -37,10 +35,6 @@ public class EmployeeDTO {
 		this.strSalary = strSalary;
 		this.function = function;
 		this.amountMinWages = amountMinWages;
-	}
-
-	public EmployeeDTO(int i, String string, BigDecimal bigDecimal, String string2, BigDecimal bigDecimal2) {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
