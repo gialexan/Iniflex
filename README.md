@@ -1,12 +1,12 @@
 # Iniflex
 
-Projeto construido para um teste mão na massa para uma vaga de Desenvolvedor Java pela empresa [Projedata Informática](https://www.projedata.com.br).
+Projeto construido para um teste mão na massa para uma vaga de Desenvolvedor Java
 
 ### Sobre o projeto
 
 O projeto tem como premissa a criação de um classe Pessoa e uma Funcionario estendendo a classe Pessoa fazendo as seguintes operações: 
 
-3.1 – Inserir todos os funcionários, na mesma ordem e informações da tabela acima.
+3.1 – Inserir todos os funcionários, na mesma ordem e informações da [tabela](https://github.com/gialexan/Iniflex/blob/main/demo/src/main/resources/import.sql).
 
 3.2 – Remover o funcionário “João” da lista.
 
