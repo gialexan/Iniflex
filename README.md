@@ -60,4 +60,4 @@ As imagens com os testes feito via Postman estão na pasta [assets](https://gith
 ---
 
 Made by:<br />
-Gilmar Alexandro Romani 👋 [See my linkedin](https://www.linkedin.com/in/gilmar-romani/)
+Gilmar Alexandro Romani 👋 [Veja meu LinkedIn](https://www.linkedin.com/in/gilmar-romani/)
